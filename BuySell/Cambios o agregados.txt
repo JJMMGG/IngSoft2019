@@ -29,7 +29,7 @@
 		-> todo lo referido al usuario
 		-> cuenta con dos campos especiales
 			- nuevoProducto: boolean -> cammbia su estado a true a travez dela lista de observadores en sujeto
-						 -> cuando el usuario por medio de la interfaz desea ver la lista de 						   			productos, se debe bajar esta bandera.
+						 -> cuando el usuario por medio de la interfaz desea ver la lista de 						   	productos, se debe bajar esta bandera.
 			- soldProducto: int	 -> cambia su estado a travez de una lista observadores cuando el usuario
 							vendedor a vendidio un producto
 		-> cuenta con campos
