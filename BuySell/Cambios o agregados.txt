@@ -1,0 +1,55 @@
+----------------------- actualizacion --------------
+	-> 12/7/19 - Cristian
+----------------------- Observaciones --------------
+	- testing unitario de Observer
+		-> esta hecho solo para verificar que se hace la notificacion a los usuarios
+	-  
+----------------------- cambio/agregacion a realizar --------------------
+	- el campo precio de Producto sea entero.
+	- Atraves de un Strategy (agregando su contexto)
+	  ejecutar un metodo ( agregarProducto(Producto) ). ya que este es el encargado de avisar al subject
+	  a traves del usuario asociado. : solo si hay tiempo
+	
+	-> Cristian
+
+	-> Juan
+----------------------- cambios hechos --------------------
+
+	- Independendencia Categoria de producto
+		-> Categoria contiene una lista de productos. 
+		-> Producto es todo lo refererido a un producto
+	- Categoria
+		-> tiene una Interfaz ICategoria. 
+	- Producto
+		-> todo referido a producto
+		-> en su parametro recibe ICategoria, con este objeto obtengo el nombre de la categoria a la que pertenece
+		   el producto.
+		-> tiene sus get y sus set.	
+	- Usuario
+		-> todo lo referido al usuario
+		-> cuenta con dos campos especiales
+			- nuevoProducto: boolean -> cammbia su estado a true a travez dela lista de observadores en sujeto
+						 -> cuando el usuario por medio de la interfaz desea ver la lista de 						   			productos, se debe bajar esta bandera.
+			- soldProducto: int	 -> cambia su estado a travez de una lista observadores cuando el usuario
+							vendedor a vendidio un producto
+		-> cuenta con campos
+			- referido a la cantidad
+			- referido al precio -> al precio lo manejo como un string - creo que deberia cambiarlo
+		-> extiende de subjeto para poder agregarse a la lista de observadores
+			
+----------------------- agregados ------------------
+	- patron observer
+		-> solo para cuando se agrego un producto
+		-> faltaria para cuando se realizo una venta y se le noifica solo un usuario
+		-> 
+	- patron strategy
+		-> vi su uso en la forma de pago
+	- patron singleton
+		-> al independizar Categoria de Producto, puedo instancia solo una vez a la categoria
+		   dandome la posibilidad de utilizar singleton.
+	- manejo de Exception
+		-> cada clase tiene una clase Exception
+	- Testing unitario
+		-> cada clase tiene su test unitario.
+
+###########################################################################################################################		
