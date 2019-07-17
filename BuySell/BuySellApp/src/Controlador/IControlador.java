@@ -11,4 +11,5 @@ package Controlador;
  */
 public interface IControlador {
     
+    void ejecutar();
 }

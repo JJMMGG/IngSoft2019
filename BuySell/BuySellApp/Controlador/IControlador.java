@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Modelo;
+package Controlador;
 
 /**
  *
  * @author DaCriPer
  */
-public class Modelo {
+public interface IControlador {
     
+    void ejecutar();
 }
