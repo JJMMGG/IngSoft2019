@@ -11,6 +11,7 @@
 	  a traves del usuario asociado. : solo si hay tiempo
 	
 	-> Cristian
+		- agrege ListaUsuario
 
 	-> Juan
 ----------------------- cambios hechos --------------------
