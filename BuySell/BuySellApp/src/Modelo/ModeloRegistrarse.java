@@ -15,30 +15,31 @@ import usuario.Usuario;
  */
 public class ModeloRegistrarse implements IModelo{
     
-    private Usuario usu;
-    private ListaUsuarios Lusu;
+    private final Usuario usu;
+    private final ListaUsuarios Lusu;
     
     public ModeloRegistrarse(){
-        Lusu = new ListaUsuarios();
+        Lusu = ListaUsuarios.getListaUsuarios();
         usu = new Usuario();
     }
  
-    public boolean BuscarUsuario(String nombre){
-        usu = Lusu.getUsuario(nombre);
-        return usu != null;
+    public boolean BuscarUsuario(String nombre){ 
+        return Lusu.existe(nombre);
     }
     
     public boolean VerificarContrasenia(String contrasenia){
+        Usuario usuAux = new Usuario();
         try{
-            usu.setContraseniaUsuario(contrasenia);
+            usuAux.setContraseniaUsuario(contrasenia);
         }catch(ExceptionUser e){
+            System.out.println(e.getMessage());
             return false;
         }
         return true;
     }
 
-    public void RegistrarUsuario(String[] s) {
-        Lusu.addUsuario(s);
+    public boolean RegistrarUsuario(String[] s) {
+        return Lusu.addUsuario(s);
     }
     
     

@@ -16,4 +16,6 @@ public interface IVista {
     void noVisible();  
     void ErrorUsuario();
     void ErrorContraseña();
+    void ErrorDatos();
+    public void ConfirmarUsuario();
 }

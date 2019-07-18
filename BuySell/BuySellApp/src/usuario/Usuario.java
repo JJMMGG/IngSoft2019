@@ -12,13 +12,11 @@ public class Usuario extends Observer{
 	private String Id;
 	private String contrasenia;
 	private boolean nuevoProducto;			// me permite cambiar de estado cuando hay un nuevo producto
-	private int soldProducto;				// me permite cambiar de estado cuando se compro un producto de este usuario
-											//		el int hace referencia a si se le compro en varias publicaciones.
+	private int soldProducto;			// me permite cambiar de estado cuando se compro un producto de este usuario
+							// el int hace referencia a si se le compro en varias publicaciones.
 
-    
 	
-	
-	public Usuario() { nuevoProducto = true; soldProducto = 0; }
+	public Usuario() { nuevoProducto = false; soldProducto = 0; }
 	
 	public Usuario( String nombre, String Id, String direccion, String contrasenia){
 		try {
@@ -40,7 +38,8 @@ public class Usuario extends Observer{
 	public String getDireccionUsuario() { return direccion;}
 	public String getContraseniaUsuario() { return contrasenia; }
 	//public boolean getNuevoProducto() { return nuevoProducto;}
-	public String getNuevoProducto() { if(nuevoProducto) return "OK"; return "NO OK";} 
+	public String getNuevoProducto() { if(nuevoProducto) return "SI"; return "NO";} 
+        public String getProductoVendido() { return ("" + soldProducto); }
 	// ------------ SET -----------------//
 	public void setNombreUsuario(String nombre)throws ExceptionUser {
 		if((nombre == null) || (nombre.trim().isEmpty()) ) { throw new ExceptionUser(004); }
@@ -111,14 +110,24 @@ public class Usuario extends Observer{
 		setNuevoProducto();
 	}
 	
-	private boolean contieneNumero(String pass) {
-		char arr[] = pass.toCharArray();
-		char num[] = "0123456789".toCharArray();
-		for(int i=0; i< pass.length(); i++) {
-			for(int j=0; j<pass.length(); j++) {
-				if(num[j] == arr[i]) return true;
-			}
-		}
-		return false; 
+    private boolean contieneNumero(String pass) {
+	char arr[] = pass.toCharArray();
+	char num[] = "0123456789".toCharArray();
+	for(int i=0; i< pass.length(); i++) {
+            for(int j=0; j<pass.length(); j++) {
+		if(num[j] == arr[i]) return true;
+            }
 	}
+	return false; 
+    }
+    
+    @Override
+    public String toString(){
+        String info = "";
+        info = info + getNombreUsuario() + "\n" + getApellido() + "\n";
+        info = info + getEmail() + "\n" + getDireccion() + "\n";
+        info = info + getIdUsuario() + "\n" + getContraseniaUsuario() + "\n";
+        info = info + getNuevoProducto() + "\n" + getProductoVendido();
+        return info;
+    }
 }

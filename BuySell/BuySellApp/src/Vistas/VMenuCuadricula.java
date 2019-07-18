@@ -5,16 +5,24 @@
  */
 package Vistas;
 
+import Controlador.CMenuPrincipal;
+import Controlador.IControlador;
+import Modelo.IModelo;
+
 /**
  *
  * @author DaCriPer
  */
-public class VMenuCuadricula extends javax.swing.JFrame {
+public class VMenuCuadricula extends javax.swing.JFrame implements IVista{
 
+    private final CMenuPrincipal controlador;
+    private final IModelo modelo;
     /**
      * Creates new form MenuCuadricula
      */
-    public VMenuCuadricula() {
+    public VMenuCuadricula( IControlador controlador, IModelo modelo) {
+        this.controlador = (CMenuPrincipal) controlador;
+        this.modelo = modelo;
         initComponents();
     }
 
@@ -29,16 +37,16 @@ public class VMenuCuadricula extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        MiCuenta = new javax.swing.JButton();
+        Categorias = new javax.swing.JButton();
+        Vender = new javax.swing.JButton();
+        NuevoProducto = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
+        nuevoProductoInfo = new javax.swing.JList();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        Salir = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        MenuLista = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -48,38 +56,60 @@ public class VMenuCuadricula extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Menu Principal");
 
-        jButton1.setText("Mi Cuenta");
+        MiCuenta.setText("Mi Cuenta");
+        MiCuenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MiCuentaActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Categorias");
+        Categorias.setText("Categorias");
+        Categorias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CategoriasActionPerformed(evt);
+            }
+        });
 
-        jButton4.setText("Vender");
+        Vender.setText("Vender");
+        Vender.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VenderActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Nuevos Productos");
+        NuevoProducto.setText("Nuevos Productos");
+        NuevoProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NuevoProductoActionPerformed(evt);
+            }
+        });
 
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(nuevoProductoInfo);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(MiCuenta)
+                    .addComponent(Categorias))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton4)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(NuevoProducto)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(jLabel1)))
-                .addContainerGap(19, Short.MAX_VALUE))
+                        .addGap(33, 33, 33)
+                        .addComponent(Vender)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(69, 69, 69)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -89,34 +119,44 @@ public class VMenuCuadricula extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
+                        .addGap(20, 20, 20)
                         .addComponent(jLabel1)
                         .addGap(36, 36, 36)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
-                            .addComponent(jButton4))
-                        .addGap(18, 18, 18)
+                            .addComponent(Vender)
+                            .addComponent(MiCuenta))
+                        .addGap(33, 33, 33)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton2)
-                            .addComponent(jButton3))))
+                            .addComponent(Categorias)
+                            .addComponent(NuevoProducto))))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        jMenu1.setText("BuySell");
+        Salir.setText("BuySell");
+        Salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SalirActionPerformed(evt);
+            }
+        });
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem1.setText("Salir");
-        jMenu1.add(jMenuItem1);
+        Salir.add(jMenuItem1);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(Salir);
 
-        jMenu2.setText("View");
+        MenuLista.setText("View");
+        MenuLista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuListaActionPerformed(evt);
+            }
+        });
 
         jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem2.setText("Menu lista");
-        jMenu2.add(jMenuItem2);
+        MenuLista.add(jMenuItem2);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(MenuLista);
 
         setJMenuBar(jMenuBar1);
 
@@ -134,56 +174,77 @@ public class VMenuCuadricula extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void hacerVisible(){
-        java.awt.EventQueue.invokeLater(() -> {
-            new VMenuCuadricula().setVisible(true);
-        });
-    }
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VMenuCuadricula.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VMenuCuadricula.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VMenuCuadricula.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VMenuCuadricula.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
+    private void MiCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MiCuentaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MiCuentaActionPerformed
 
-        /* Create and display the form */
-        
-    }
+    private void VenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VenderActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_VenderActionPerformed
+
+    private void CategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CategoriasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CategoriasActionPerformed
+
+    private void NuevoProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NuevoProductoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NuevoProductoActionPerformed
+
+    private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_SalirActionPerformed
+
+    private void MenuListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuListaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MenuListaActionPerformed
+
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton Categorias;
+    private javax.swing.JMenu MenuLista;
+    private javax.swing.JButton MiCuenta;
+    private javax.swing.JButton NuevoProducto;
+    private javax.swing.JMenu Salir;
+    private javax.swing.JButton Vender;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JList jList1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList nuevoProductoInfo;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void noVisible() {
+        this.setVisible(false);
+    }
+    
+    @Override
+    public void hacerVisible(){
+        this.setVisible(true);
+    }
+    
+    @Override
+    public void ErrorUsuario() {
+         
+    }
+
+    @Override
+    public void ErrorContraseña() {
+        
+    }
+
+    @Override
+    public void ErrorDatos() {
+         
+    }
+
+    @Override
+    public void ConfirmarUsuario() {
+        
+    }
 }
