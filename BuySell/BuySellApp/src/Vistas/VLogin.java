@@ -59,8 +59,8 @@ public class VLogin extends javax.swing.JFrame implements IVista{
         contrasenia = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         titulo = new javax.swing.JLabel();
-        PasswordField = new javax.swing.JPasswordField();
         Salir = new javax.swing.JButton();
+        contraseniaText = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -123,7 +123,7 @@ public class VLogin extends javax.swing.JFrame implements IVista{
                                         .addGap(18, 18, 18)
                                         .addComponent(registrarse))
                                     .addComponent(UsuarioText, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
-                                    .addComponent(PasswordField)))
+                                    .addComponent(contraseniaText)))
                             .addComponent(titulo))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -137,10 +137,10 @@ public class VLogin extends javax.swing.JFrame implements IVista{
                     .addComponent(usuario)
                     .addComponent(UsuarioText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(contrasenia)
-                    .addComponent(PasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                    .addComponent(contraseniaText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ingresar)
                     .addComponent(registrarse)
@@ -166,7 +166,7 @@ public class VLogin extends javax.swing.JFrame implements IVista{
 
     private void ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarActionPerformed
         // TODO add your handling code here:
-        controlador.Ingresar(UsuarioText.getText(), contrasenia.getText() );
+        controlador.Ingresar(UsuarioText.getText(), contraseniaText.getText() );
     }//GEN-LAST:event_ingresarActionPerformed
 
     private void registrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarseActionPerformed
@@ -182,10 +182,10 @@ public class VLogin extends javax.swing.JFrame implements IVista{
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPasswordField PasswordField;
     private javax.swing.JButton Salir;
     private javax.swing.JTextField UsuarioText;
     private javax.swing.JLabel contrasenia;
+    private javax.swing.JTextField contraseniaText;
     private javax.swing.JButton ingresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
@@ -202,6 +202,16 @@ public class VLogin extends javax.swing.JFrame implements IVista{
     @Override
     public void ErrorContraseña() {
         JOptionPane.showMessageDialog((Component) this, "Contraseña incorecta");
+    }
+
+    @Override
+    public void ConfirmarUsuario() {
+        JOptionPane.showMessageDialog((Component) this, "Bienvenido " + UsuarioText.getText());
+    }
+
+    @Override
+    public void ErrorDatos() {
+      
     }
 
 }

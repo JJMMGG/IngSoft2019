@@ -7,6 +7,7 @@ package Controlador;
 
 import Modelo.IModelo;
 import Modelo.ModeloMenuPrincipal;
+import Vistas.IVista;
 import Vistas.VMenuCuadricula;
 import Vistas.VMenuLista;
 
@@ -14,15 +15,16 @@ import Vistas.VMenuLista;
  *
  * @author DaCriPer
  */
-public class CMenuPrincipal implements IControlador{
+public final class CMenuPrincipal implements IControlador{
     ModeloMenuPrincipal modeloMenuPrincipal;
-    VMenuCuadricula vistaMenuCuadricula;
-    VMenuLista vistaMenuLista;
+    IVista vistaMenuCuadricula;
+    IVista vistaMenuLista;
     
     public CMenuPrincipal( IModelo modelo ){
         this.modeloMenuPrincipal = (ModeloMenuPrincipal)modelo;
-        vistaMenuCuadricula = new VMenuCuadricula();
-        vistaMenuLista = new VMenuLista();
+        vistaMenuCuadricula = (IVista)new VMenuCuadricula();
+        vistaMenuLista = (IVista)new VMenuLista();
+        //ejecutar();
     }
     
     @Override

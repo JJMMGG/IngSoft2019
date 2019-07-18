@@ -13,11 +13,11 @@ import usuario.*;
  */
 public class ModeloLogin implements IModelo{
     
-    private final ListaUsuarios Lusu;
+    private ListaUsuarios Lusu;
     private Usuario usu;
     
     public ModeloLogin(){
-        Lusu = new ListaUsuarios();
+        Lusu = Lusu.getListaUsuarios();
         usu = new Usuario();
     }
     

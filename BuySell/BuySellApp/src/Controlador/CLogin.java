@@ -7,6 +7,7 @@ package Controlador;
 
 import Modelo.IModelo;
 import Modelo.ModeloLogin;
+import Modelo.ModeloMenuPrincipal;
 import Modelo.ModeloRegistrarse;
 //import Modelo.ModeloLogin;
 //import Modelo.ModeloValidar;
@@ -44,8 +45,9 @@ public final class CLogin implements IControlador{
         // a travez de modeloLogin
        if( modeloLogin.BuscarUsario(nombre) ){
            if( modeloLogin.VerificarContrasenia(contrasenia)){
-               IModelo modeloP = (IModelo) new VMenuCuadricula();
-               CMenuPrincipal menuP = new CMenuPrincipal(modeloP);
+               
+               irMenuPrincipal();
+               
            }else{
                vistaLogin.ErrorContraseña();
            }
@@ -56,9 +58,16 @@ public final class CLogin implements IControlador{
     }
     
     public void Registrarse(){
-        vistaLogin.noVisible();
         IModelo modeloR = (IModelo)new ModeloRegistrarse();
         IControlador registroC =(IControlador) new CRegistrarse(modeloR); 
-        
+        vistaLogin.noVisible();
+        registroC.ejecutar();
+    }
+
+    private void irMenuPrincipal() {
+        IModelo modeloP = (IModelo) new ModeloMenuPrincipal();
+        IControlador menuP = (IControlador) new CMenuPrincipal(modeloP);
+        vistaLogin.noVisible();
+        menuP.ejecutar();
     }
 }

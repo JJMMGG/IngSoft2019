@@ -254,6 +254,18 @@ public class VRegistrarse extends javax.swing.JFrame implements IVista{
 
     @Override
     public void ErrorContraseña() {
-        JOptionPane.showMessageDialog((Component) this, "Contraseña incorecta");
+        JOptionPane.showMessageDialog((Component) this, "Contraseña incorrecta");
     }
+
+    @Override
+    public void ConfirmarUsuario() {
+       JOptionPane.showMessageDialog((Component) this, "Usuario Registrado");
+    }
+    
+    @Override
+    public void ErrorDatos(){
+        JOptionPane.showMessageDialog((Component) this, "Error: Verificar que se "
+                + "hayan completado todos los campos correctamente");
+    }
+
 }

@@ -17,6 +17,7 @@ import Modelo.ModeloLogin;
 public class BuySell {
     
     public static void main(String[] arg){
+        
         IModelo modelo = new ModeloLogin();
         IControlador controlador;
         controlador = new CLogin(modelo);
