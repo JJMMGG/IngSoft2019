@@ -18,4 +18,7 @@ public interface IVista {
     void ErrorContraseña();
     void ErrorDatos();
     public void ConfirmarUsuario();
+
+    public void colocarIDUsuario(String idUsuario);
+    public void colocarNuevoProducto(String s);
 }

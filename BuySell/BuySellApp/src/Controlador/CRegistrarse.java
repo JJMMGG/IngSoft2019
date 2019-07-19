@@ -30,7 +30,7 @@ public final class CRegistrarse implements IControlador {
     
     public CRegistrarse( IModelo modelo){
         this.modeloRegistrarse = (ModeloRegistrarse) modelo;
-        Vistaregistro = (IVista) new VRegistrarse(this, modelo);
+        Vistaregistro = (IVista) new VRegistrarse(this);
         //ejecutar();
     }
     

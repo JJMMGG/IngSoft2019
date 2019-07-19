@@ -74,14 +74,12 @@
                                   <EmptySpace pref="39" max="32767" attributes="0"/>
                                   <Component id="ButtonSalir" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="Contrasenia" max="32767" attributes="0"/>
-                                  <Component id="Apellido" max="32767" attributes="0"/>
-                                  <Component id="Nombre" max="32767" attributes="0"/>
-                                  <Component id="Direccion" max="32767" attributes="0"/>
-                                  <Component id="Email" alignment="0" pref="167" max="32767" attributes="0"/>
-                                  <Component id="Id" alignment="0" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="Contrasenia" max="32767" attributes="0"/>
+                              <Component id="Apellido" max="32767" attributes="0"/>
+                              <Component id="Nombre" max="32767" attributes="0"/>
+                              <Component id="Direccion" max="32767" attributes="0"/>
+                              <Component id="Email" alignment="0" pref="167" max="32767" attributes="0"/>
+                              <Component id="Id" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>

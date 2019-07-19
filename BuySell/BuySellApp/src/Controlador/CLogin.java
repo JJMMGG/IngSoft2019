@@ -13,9 +13,6 @@ import Modelo.ModeloRegistrarse;
 //import Modelo.ModeloValidar;
 import Vistas.IVista;
 import Vistas.VLogin;
-import Vistas.VMenuCuadricula;
-import java.awt.Component;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -32,7 +29,7 @@ public final class CLogin implements IControlador{
      */
     public CLogin( IModelo modelo){
         this.modeloLogin =  (ModeloLogin) modelo;
-        vistaLogin = (IVista)new VLogin(this, modeloLogin);
+        vistaLogin = (IVista)new VLogin(this);
         ejecutar();
     }
     
@@ -43,17 +40,15 @@ public final class CLogin implements IControlador{
     
     public void Ingresar(String nombre, String contrasenia){
         // a travez de modeloLogin
-       if( modeloLogin.BuscarUsario(nombre) ){
-           if( modeloLogin.VerificarContrasenia(contrasenia)){
-               
-               irMenuPrincipal();
-               
-           }else{
-               vistaLogin.ErrorContraseña();
-           }
-       }else{
-           vistaLogin.ErrorUsuario();
-       }  
+            if( modeloLogin.BuscarUsario(nombre) ){
+                if( modeloLogin.VerificarContrasenia(contrasenia)){
+                    irMenuPrincipal();
+                }else{
+                    vistaLogin.ErrorContraseña();
+                }
+            }else{
+                vistaLogin.ErrorUsuario();
+        }  
         
     }
     

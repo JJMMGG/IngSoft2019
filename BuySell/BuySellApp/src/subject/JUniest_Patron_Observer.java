@@ -27,11 +27,11 @@ class JUniest_Patron_Observer {
 	private static Producto producto5;
 	private static Producto producto6;
 	
-	private static List<Producto> prodM = new ArrayList<Producto>();
-	private static List<Producto> prodV = new ArrayList<Producto>();
-	private static List<Producto> prodC = new ArrayList<Producto>();
+	private static List<Producto> prodM = new ArrayList<>();
+	private static final List<Producto> prodV = new ArrayList<>();
+	private static final List<Producto> prodC = new ArrayList<>();
 
-	private static List<Usuario> Lusu = new ArrayList<Usuario>();
+	private static final List<Usuario> Lusu = new ArrayList<>();
 	private static Vehiculo vehiculo;
 	private static Muebles muebles;
 	private static Computacion comp;
@@ -60,9 +60,12 @@ class JUniest_Patron_Observer {
 		crearProductosVehi();	
 		//enlistar
 		enlistarObservadores();
-		System.out.println(suj.getSize());
+		System.out.println("cantidad Observadore: " + suj.getSize());
+                
 		list_usuarios();
-		System.out.println(Lusu.size());
+                System.out.println("cantidad Usuarios: " + Lusu.size());
+                comprobar_notificacion();
+                
 		prueba_postiva();
 		
 		comprobar_notificacion();
@@ -105,24 +108,24 @@ class JUniest_Patron_Observer {
 
 	private static void crearProductosMueb() {
 		producto3 = new Producto(usuario1,"Heladera Columbia - usada","Hace falta cambiar su automatico",
-				 Muebles.getMuebles(),"1000",1);
+				 Muebles.getMuebles(),100,1);
 		producto4 = new Producto(usuario2,"Comoda de Pino","medida: 0.5x2 mts",
-				 Muebles.getMuebles(),"6000",3);
+				 Muebles.getMuebles(),6000,3);
 		
 	}
 
 	private static void crearProductosVehi() {
 		producto5 = new Producto(usuario3,"Bicicleta Ferrer","solo fantan colocar cambios",
-				Vehiculo.getVehiculo(),"1200",1);
-		producto6 = new Producto(usuario4,"Auto Ford fiesta","pequeña abolladura. año 2010. ",
-				Vehiculo.getVehiculo(),"300000",1);
+				Vehiculo.getVehiculo(),1200,1);
+		producto6 = new Producto(usuario4,"Auto Ford fiesta","pequeï¿½a abolladura. aï¿½o 2010. ",
+				Vehiculo.getVehiculo(),30000,1);
 	}
 
 	private static void crearProductosComp() {
 		producto = new Producto(usuario5,"paquete Office 2019","incluye: Word,Excel,PowerPoint,etc",
-				Computacion.getComputacion(),"500",100);
+				Computacion.getComputacion(),500,100);
 		producto2 = new Producto(usuario6,"monitor LG","en buen funcionamiento y muy buena resolucion",
-				Computacion.getComputacion(),"300",1);
+				Computacion.getComputacion(),300,1);
 
 	}
 	

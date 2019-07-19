@@ -24,5 +24,4 @@ public class ModeloMenuPrincipal implements IModelo{
         return modeloInicio;
     }
     
-    
 }

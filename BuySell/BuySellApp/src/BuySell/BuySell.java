@@ -9,6 +9,8 @@ import Controlador.CLogin;
 import Controlador.IControlador;
 import Modelo.IModelo;
 import Modelo.ModeloLogin;
+import producto.ListaProducto;
+import usuario.ListaUsuarios;
 
 /**
  *
@@ -16,8 +18,15 @@ import Modelo.ModeloLogin;
  */
 public class BuySell {
     
+    static ListaUsuarios Lusu;
+    static ListaProducto Lpro;
     public static void main(String[] arg){
         
+        // leo las bases de datos
+        Lusu = ListaUsuarios.getListaUsuarios();
+        Lpro = ListaProducto.getListaProductos();
+        
+        // comnienzo creando la vvista Login 
         IModelo modelo = new ModeloLogin();
         IControlador controlador;
         controlador = new CLogin(modelo);

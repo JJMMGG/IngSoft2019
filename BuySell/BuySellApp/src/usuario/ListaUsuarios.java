@@ -30,7 +30,7 @@ public class ListaUsuarios{
     private  static FileWriter escritor;
     private  static BufferedReader buffer;
     private  static PrintWriter print;
-    
+    private  static Usuario usuarioActual;
     private ListaUsuarios(){
         
     }
@@ -51,23 +51,28 @@ public class ListaUsuarios{
         while( iterU.hasNext() ){
            u = (Usuario)iterU.next();
                 if( u.getIdUsuario().equals(Id) ){
+                    usuarioActual = u;
                     return true;
                 }
             }
         return false;
     }
     
-    public Usuario getUsuario(String Id){
-        Usuario u;
+    public Usuario getUsuarioActual(){
+        return usuarioActual;
+    }
+    
+    public Usuario getUsuario(String nombre){
+        Usuario u  = null;
         @SuppressWarnings("rawtypes")
         Iterator iterU = usuarios.iterator();
         while( iterU.hasNext() ){
            u = (Usuario)iterU.next();
-                if( u.getIdUsuario().equals(Id) ){
-                    return u;
+                if( u.getIdUsuario().equals(nombre) ){
+                    return  u;
                 }
             }
-        return null;
+        return u;
     }
     
     public List<Usuario> getList(){
@@ -80,8 +85,10 @@ public class ListaUsuarios{
     } 
     
     public void addUsuario(Usuario usuario){
-        usuarios.add(usuario);
+        this.usuarios.add(usuario);
+        usuarioActual = usuario;
         actualizarBDD();
+        //leerBDD();
     }
     
     public boolean addUsuario(String s[]){
@@ -106,7 +113,7 @@ public class ListaUsuarios{
         int i=0;
         Usuario u;
         try {
-            print = new PrintWriter("BDD.txt");
+            print = new PrintWriter("BDD_USER.txt");
         } catch (FileNotFoundException ex) {
             Logger.getLogger(ListaUsuarios.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -137,7 +144,7 @@ public class ListaUsuarios{
         
         // abrimos para leer
         try {
-            lector = new FileReader("BDD.txt");
+            lector = new FileReader("BDD_USER.txt");
         } catch (FileNotFoundException ex) {
             Logger.getLogger(ListaUsuarios.class.getName()).log(Level.SEVERE, null, ex);
         }

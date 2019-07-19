@@ -7,7 +7,10 @@ package Vistas;
 
 import Controlador.CMenuPrincipal;
 import Controlador.IControlador;
-import Modelo.IModelo;
+import java.awt.Component;
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,17 +18,21 @@ import Modelo.IModelo;
  */
 public class VMenuCuadricula extends javax.swing.JFrame implements IVista{
 
+    private String []dato;
     private final CMenuPrincipal controlador;
-    private final IModelo modelo;
+    DefaultListModel list;
     /**
      * Creates new form MenuCuadricula
+     * @param controlador
      */
-    public VMenuCuadricula( IControlador controlador, IModelo modelo) {
+    public VMenuCuadricula( IControlador controlador) {
         this.controlador = (CMenuPrincipal) controlador;
-        this.modelo = modelo;
         initComponents();
+        list = new DefaultListModel();
+        nuevoProductoList.setModel(list);
     }
 
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -42,12 +49,12 @@ public class VMenuCuadricula extends javax.swing.JFrame implements IVista{
         Vender = new javax.swing.JButton();
         NuevoProducto = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        nuevoProductoInfo = new javax.swing.JList();
+        nuevoProductoList = new javax.swing.JList();
         jMenuBar1 = new javax.swing.JMenuBar();
         Salir = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        Exit = new javax.swing.JMenuItem();
         MenuLista = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        VistaLista = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -84,7 +91,7 @@ public class VMenuCuadricula extends javax.swing.JFrame implements IVista{
             }
         });
 
-        jScrollPane1.setViewportView(nuevoProductoInfo);
+        jScrollPane1.setViewportView(nuevoProductoList);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -93,43 +100,41 @@ public class VMenuCuadricula extends javax.swing.JFrame implements IVista{
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(MiCuenta)
-                    .addComponent(Categorias))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(NuevoProducto)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(MiCuenta)
+                            .addComponent(Categorias))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(NuevoProducto)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(33, 33, 33)
+                                .addComponent(Vender))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(Vender)
+                        .addComponent(jLabel1)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(45, 45, 45)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel1)
-                        .addGap(36, 36, 36)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Vender)
                             .addComponent(MiCuenta))
                         .addGap(33, 33, 33)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Categorias)
-                            .addComponent(NuevoProducto))))
-                .addContainerGap(20, Short.MAX_VALUE))
+                            .addComponent(NuevoProducto)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         Salir.setText("BuySell");
@@ -139,9 +144,14 @@ public class VMenuCuadricula extends javax.swing.JFrame implements IVista{
             }
         });
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem1.setText("Salir");
-        Salir.add(jMenuItem1);
+        Exit.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        Exit.setText("Salir");
+        Exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExitActionPerformed(evt);
+            }
+        });
+        Salir.add(Exit);
 
         jMenuBar1.add(Salir);
 
@@ -152,9 +162,14 @@ public class VMenuCuadricula extends javax.swing.JFrame implements IVista{
             }
         });
 
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem2.setText("Menu lista");
-        MenuLista.add(jMenuItem2);
+        VistaLista.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
+        VistaLista.setText("Menu lista");
+        VistaLista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VistaListaActionPerformed(evt);
+            }
+        });
+        MenuLista.add(VistaLista);
 
         jMenuBar1.add(MenuLista);
 
@@ -180,6 +195,7 @@ public class VMenuCuadricula extends javax.swing.JFrame implements IVista{
 
     private void VenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VenderActionPerformed
         // TODO add your handling code here:
+        controlador.NuevoProducto();
     }//GEN-LAST:event_VenderActionPerformed
 
     private void CategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CategoriasActionPerformed
@@ -192,30 +208,41 @@ public class VMenuCuadricula extends javax.swing.JFrame implements IVista{
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
         // TODO add your handling code here:
-        System.exit(0);
+        ExitActionPerformed(evt);
     }//GEN-LAST:event_SalirActionPerformed
 
     private void MenuListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuListaActionPerformed
-        // TODO add your handling code here:
+        // cambiar de vista
+        VistaListaActionPerformed(evt);
     }//GEN-LAST:event_MenuListaActionPerformed
+
+    private void VistaListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VistaListaActionPerformed
+        // TODO add your handling code here:
+        controlador.CambiarVistaLista();
+    }//GEN-LAST:event_VistaListaActionPerformed
+
+    private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_ExitActionPerformed
 
     
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Categorias;
+    private javax.swing.JMenuItem Exit;
     private javax.swing.JMenu MenuLista;
     private javax.swing.JButton MiCuenta;
     private javax.swing.JButton NuevoProducto;
     private javax.swing.JMenu Salir;
     private javax.swing.JButton Vender;
+    private javax.swing.JMenuItem VistaLista;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JList nuevoProductoInfo;
+    private javax.swing.JList nuevoProductoList;
     // End of variables declaration//GEN-END:variables
 
     @Override
@@ -245,6 +272,16 @@ public class VMenuCuadricula extends javax.swing.JFrame implements IVista{
 
     @Override
     public void ConfirmarUsuario() {
-        
+        JOptionPane.showMessageDialog((Component) this, " OK ");
+    }
+
+    @Override
+    public void colocarNuevoProducto(String s){
+        list.addElement(s);
+    }
+    
+    @Override
+    public void colocarIDUsuario(String idUsuario) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

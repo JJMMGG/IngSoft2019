@@ -8,8 +8,6 @@ package Vistas;
 import Controlador.CLogin;
 import Controlador.CRegistrarse;
 import Controlador.IControlador;
-import Modelo.IModelo;
-import Modelo.ModeloRegistrarse;
 import java.awt.Component;
 import javax.swing.JOptionPane;
 
@@ -20,15 +18,13 @@ import javax.swing.JOptionPane;
 public class VLogin extends javax.swing.JFrame implements IVista{
 
     private final CLogin controlador;
-    private final IModelo modelo;
+    
     /**
      * Creates new form Login
      * @param controlador
-     * @param modelo
      */
-    public VLogin( IControlador controlador, IModelo modelo) {
+    public VLogin( IControlador controlador) {
         this.controlador = (CLogin) controlador;
-        this.modelo = modelo;
         initComponents();
     }
     
@@ -212,6 +208,16 @@ public class VLogin extends javax.swing.JFrame implements IVista{
     @Override
     public void ErrorDatos() {
       
+    }
+
+    @Override
+    public void colocarIDUsuario(String idUsuario) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void colocarNuevoProducto(String s) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

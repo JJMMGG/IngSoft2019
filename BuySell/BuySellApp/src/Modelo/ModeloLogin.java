@@ -13,17 +13,20 @@ import usuario.*;
  */
 public class ModeloLogin implements IModelo{
     
-    private ListaUsuarios Lusu;
+    private final ListaUsuarios Lusu;
     private Usuario usu;
     
     public ModeloLogin(){
-        Lusu = Lusu.getListaUsuarios();
+        Lusu = ListaUsuarios.getListaUsuarios();
         usu = new Usuario();
     }
     
     public boolean BuscarUsario(String nombre){
-        usu = Lusu.getUsuario(nombre);
-        return usu != null;
+        if(Lusu.existe(nombre) ) { 
+            usu = Lusu.getUsuario(nombre); 
+            return true;
+        }
+        return false;
     }
     
     public boolean VerificarContrasenia(String contrasenia){

@@ -1,0 +1,45 @@
+Cris
+pere
+yo@
+mi casa 23
+crisP
+cris1234
+NO
+NO
+ 
+Enrique
+Dominguez
+E.D@
+mi campo 46
+endo
+endo1234
+NO
+NO
+ 
+Abigail
+Guillen
+abi@BuySell.com
+mi casa 55
+abiG
+abiG1234
+NO
+NO
+ 
+Juan
+Giron
+JG@BuySell.com
+mi casa 1258
+juan
+juan1234
+NO
+NO
+ 
+Claudio
+Ponce
+claudio@BuySell.com
+la carlota km 500
+ponce
+ponce1234
+NO
+NO
+ 

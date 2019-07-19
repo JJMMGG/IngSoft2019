@@ -7,7 +7,6 @@ package Vistas;
 
 import Controlador.CRegistrarse;
 import Controlador.IControlador;
-import Modelo.IModelo;
 import java.awt.Component;
 import javax.swing.JOptionPane;
 
@@ -17,17 +16,14 @@ import javax.swing.JOptionPane;
  */
 public class VRegistrarse extends javax.swing.JFrame implements IVista{
 
-    private final IModelo modelo;
     private final CRegistrarse controlador;
     
     /**
      * Creates new form VRegistrarse
      * @param controlador
-     * @param modelo
      */
-    public VRegistrarse(IControlador controlador, IModelo modelo) {
+    public VRegistrarse(IControlador controlador) {
         this.controlador = (CRegistrarse) controlador;
-        this.modelo = modelo;
         initComponents();
     }
 
@@ -266,6 +262,16 @@ public class VRegistrarse extends javax.swing.JFrame implements IVista{
     public void ErrorDatos(){
         JOptionPane.showMessageDialog((Component) this, "Error: Verificar que se "
                 + "hayan completado todos los campos correctamente");
+    }
+
+    @Override
+    public void colocarIDUsuario(String idUsuario) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void colocarNuevoProducto(String s) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

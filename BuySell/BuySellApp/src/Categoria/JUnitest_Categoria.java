@@ -65,36 +65,36 @@ class JUnitest_Categoria {
 
 	private static void crearProductosMueb() {
 		producto10 = new Producto(usuario,"Heladera Columbia - usada","Hace falta cambiar su automatico",
-				 Muebles.getMuebles(),"1000",1);
+				 Muebles.getMuebles(),1000,1);
 		producto11 = new Producto(usuario2,"Comoda de Pino","medida: 0.5x2 mts",
-				 Muebles.getMuebles(),"6000",3);
+				 Muebles.getMuebles(),6000,3);
 		producto12 = new Producto(usuario3,"Cama de 2 plazas - alabarrobo","Excelent estado",
-				 Muebles.getMuebles(),"4000",1);
+				 Muebles.getMuebles(),4000,1);
 		
 	}
 
 	private static void crearProductosVehi() {
 		producto5 = new Producto(usuario,"Bicicleta Ferrer","solo fantan colocar cambios",
-				Vehiculo.getVehiculo(),"1200",1);
-		producto6 = new Producto(usuario2,"Auto Ford fiesta","pequeña abolladura. año 2010. ",
-				Vehiculo.getVehiculo(),"300000",1);
+				Vehiculo.getVehiculo(),1200,1);
+		producto6 = new Producto(usuario2,"Auto Ford fiesta","pequeï¿½a abolladura. aï¿½o 2010. ",
+				Vehiculo.getVehiculo(),300000,1);
 		producto7 = new Producto(usuario3,"Accesorios","Entre ellos portavasos- luneras- cargadores para celulares- etc",
-				Vehiculo.getVehiculo(),"1",500);
+				Vehiculo.getVehiculo(),1,500);
 		producto8 = new Producto(usuario,"Parachoque Citroen C3 ","en muy buen estado",
-				Vehiculo.getVehiculo(),"3000",4);
-		producto9 = new Producto(usuario2,"Cubiertas Michelin _ nuevas "," año 2016/2017",
-				Vehiculo.getVehiculo(),"1500",20);
+				Vehiculo.getVehiculo(),3000,4);
+		producto9 = new Producto(usuario2,"Cubiertas Michelin _ nuevas "," aï¿½o 2016/2017",
+				Vehiculo.getVehiculo(),1500,20);
 	}
 
 	private static void crearProductosComp() {
 		producto = new Producto(usuario3,"paquete Office 2019","incluye: Word,Excel,PowerPoint,etc",
-				Computacion.getComputacion(),"500",100);
+				Computacion.getComputacion(),500,100);
 		producto2 = new Producto(usuario,"monitor LG","en buen funcionamiento y muy buena resolucion",
-				Computacion.getComputacion(),"300",1);
+				Computacion.getComputacion(),300,1);
 		producto3 = new Producto(usuario2,"Memorias RAM USADAS ","Entre ellas DDR1 DDR2 DDR3",
-				Computacion.getComputacion(),"1",1);
+				Computacion.getComputacion(),1,1);
 		producto4 = new Producto(usuario3,"notebook kanji","8 GB ram, 500 GB HDD.",
-				Computacion.getComputacion(),"6500",3);
+				Computacion.getComputacion(),6500,3);
 
 	}
 	

@@ -4,7 +4,6 @@ import categoria.Computacion;
 import categoria.ICategoria;
 import categoria.Muebles;
 import categoria.Vehiculo;
-import usuario.ExceptionUser;
 import usuario.Usuario;
 
 class JUnitest_Producto {
@@ -54,7 +53,7 @@ class JUnitest_Producto {
 			conta_postivo++;}
 		catch(ExceptionProducto p){ System.out.println(p.getMessage());}
 		
-		try {producto.setPrecioProducto("2000"); 
+		try {producto.setPrecioProducto(2000); 
 			conta_postivo++;}
 		catch(ExceptionProducto p){ System.out.println(p.getMessage());}
 		
@@ -88,7 +87,7 @@ class JUnitest_Producto {
 			conta_postivo++;}
 		catch(ExceptionProducto p){ System.out.println(p.getMessage());}
 	
-		try {producto.setPrecioProducto("500"); 
+		try {producto.setPrecioProducto(500); 
 			conta_postivo++;}
 		catch(ExceptionProducto p){ System.out.println(p.getMessage());}
 	
@@ -110,7 +109,7 @@ class JUnitest_Producto {
 					conta_postivo++;}
 				catch(ExceptionProducto p){ System.out.println(p.getMessage());}
 			
-				try {producto.setDescripcionProducto("funciona aunque tiene varios años");
+				try {producto.setDescripcionProducto("funciona aunque tiene varios aï¿½os");
 					conta_postivo++;}
 				catch(ExceptionProducto p){ System.out.println(p.getMessage());}
 			
@@ -122,7 +121,7 @@ class JUnitest_Producto {
 					conta_postivo++;}
 				catch(ExceptionProducto p){ System.out.println(p.getMessage());}
 			
-				try {producto.setPrecioProducto("1100"); 
+				try {producto.setPrecioProducto(1100); 
 					conta_postivo++;}
 				catch(ExceptionProducto p){ System.out.println(p.getMessage());}
 			
@@ -162,7 +161,7 @@ class JUnitest_Producto {
 		try {producto.setICategoria(v); conta_negativo++; } 
 		catch(ExceptionProducto p){ System.out.println(p.getMessage()); }
 	
-		try {producto.setPrecioProducto("-200"); }
+		try {producto.setPrecioProducto(-200); }
 		catch(ExceptionProducto p){ System.out.println(p.getMessage());
 			conta_negativo++; }
 	

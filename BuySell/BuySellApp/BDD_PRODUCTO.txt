@@ -1,0 +1,41 @@
+Television philco
+MUEBLES
+crisP
+1000
+1
+Excelente estado
+
+Bicicleta Ferrer colo gris
+VEHICULO
+crisP
+2500
+1
+Faltan cambios
+
+Monitores LG 
+COMPUTACION
+abiG
+450
+6
+Muy buena resolucion
+
+Teclado Casio 5 Octavas
+MUEBLES
+endo
+1500
+35
+Excelente calidad del sonido
+
+Ford Fiesta 2015
+VEHICULO
+endo
+200000
+1
+Defecto en parachoque
+
+Heladera Columbia 
+MUEBLES
+abiG
+1100
+1
+cambiar automatico

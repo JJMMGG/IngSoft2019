@@ -6,15 +6,15 @@ import java.util.List;
 import categoria.ICategoria;
 import usuario.Usuario;
 
-public class Producto {
+public final class Producto {
 
-	private List<String> Lcat= new ArrayList<String>();
+	private List<String> Lcat= new ArrayList<>();
 	private Usuario usuario;
 	private String nombreProducto;
 	private String Descripcion;
 	private String nombreCategoria;
 	private ICategoria categoria;
-	private String precio;
+	private int precio;
 	int cantidad;
 	private int vendido;			
 	// la idea es poder setear su bandera de vendido para cuando tengamos que avisar al usuario vendedor
@@ -27,31 +27,22 @@ public class Producto {
 	}
 	
 	public Producto(Usuario usuario, String nombreProducto, String descripcion, 
-						ICategoria categoria, String precio, int cantidad)
+						ICategoria categoria, int precio, int cantidad)
 	{
 		Lcat.add("VEHICULO");
 		Lcat.add("MUEBLES");
 		Lcat.add("COMPUTACION");
 		try {
-				setUsuarioProducto(usuario);
-				setNombreProducto(nombreProducto);
-				setDescripcionProducto(descripcion);
-				setICategoria(categoria);
-				setPrecioProducto(precio);
-				setNombreCategoria(categoria.getNombreCategoria());
-				setCantidadProducto(cantidad);
-			}catch(ExceptionProducto p){
-				System.out.println(p.getMessage());
-				}
-		
-				this.usuario = usuario;
-				this.nombreProducto = nombreProducto;
-				this.Descripcion = descripcion;
-				this.categoria = categoria;
-				this.precio = precio;
-				this.vendido = 0;
-				this.nombreCategoria = nombreCategoria;
-				this.cantidad = cantidad;
+                    setUsuarioProducto(usuario);
+                    setNombreProducto(nombreProducto);
+                    setDescripcionProducto(descripcion);
+                    setICategoria(categoria);
+                    setPrecioProducto(precio);
+                    setNombreCategoria(categoria.getNombreCategoria());
+                    setCantidadProducto(cantidad);
+		}catch(ExceptionProducto p){
+                    System.out.println(p.getMessage());
+		}
 	}
 	
 		// -----------  GET -----------------//
@@ -59,7 +50,8 @@ public class Producto {
 		public String getNombreCategoria() { return nombreCategoria; }
 		public String getDescripcionProducto() { return Descripcion; }
 		public ICategoria getICategoria() { return categoria;}
-		public String getPrecioProducto() { return precio; }
+		public String getPrecioProductoString() { return "" + precio; }
+                public int getPrecioProductoInt() { return  precio; }
 		public Usuario getUsuarioProducto() { return usuario;}
 		public int getCantidadProducto() {return cantidad;}
 		// ------------ SET -----------------//
@@ -80,13 +72,12 @@ public class Producto {
 		public void setICategoria(ICategoria categoria)throws ExceptionProducto { 
 			if( categoria == null ) { throw new ExceptionProducto(1005); }
 			if( !(categoria instanceof ICategoria) ) { throw new ExceptionProducto(1006); }
+                        if( !Lcat.contains( categoria.getNombreCategoria() )){ throw new ExceptionProducto(1006);}
 			this.categoria = categoria;
 		}
 		
-		public void setPrecioProducto(String precio)throws ExceptionProducto {
-			if( precio == null ) { throw new ExceptionProducto(1007); }
-			if( precio.trim().isEmpty() ) { throw new ExceptionProducto(1007); }
-			if( Integer.valueOf(precio) <= 0 ) { throw new ExceptionProducto(1007); }
+		public void setPrecioProducto(int precio)throws ExceptionProducto {
+			if( precio <= 0 ) { throw new ExceptionProducto(1007); }
 			this.precio = precio; 
 		}
 		
@@ -114,7 +105,7 @@ public class Producto {
 			String palabra;
 			palabra = "[Pro: " + getNombreProducto() + "]\n-Categoria: " + getNombreCategoria()+"\n";
 			palabra = palabra + "-Usuuario: " +getUsuarioProducto().getNombreUsuario()+"\n" ;
-			palabra = palabra + "-Precio U: $" + getPrecioProducto() ;
+			palabra = palabra + "-Precio U: $" + getPrecioProductoString() ;
 			palabra = palabra + "\n-Cantidad: " + getCantidadProducto();
 			palabra = palabra + "\n-Descripcion: " + getDescripcionProducto();
 			return palabra;
