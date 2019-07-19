@@ -1,18 +1,19 @@
 ----------------------- actualizacion --------------
 	-> 12/7/19 - Cristian
+	-> 18/7/19 - Cristian
 ----------------------- Observaciones --------------
 	- testing unitario de Observer
 		-> esta hecho solo para verificar que se hace la notificacion a los usuarios
 	-  
------------------------ cambio/agregacion a realizar --------------------
-	- el campo precio de Producto sea entero.
+----------------------- cambio/agregacion a realizar ( OK-cambios hechos )--------------------
+	- OK - [18/7/19] el campo precio de Producto sea entero - 
 	- Atraves de un Strategy (agregando su contexto)
 	  ejecutar un metodo ( agregarProducto(Producto) ). ya que este es el encargado de avisar al subject
 	  a traves del usuario asociado. : solo si hay tiempo
 	
 	-> Cristian
-		- agrege ListaUsuario
-
+		- agrege ListaUsuario   - va en conjunto con el atchivo BDD_USER.txt
+		- agrege ListaProductos - va en conjunto con el archivo BDD_PRODUCTOS.txt
 	-> Juan
 ----------------------- cambios hechos --------------------
 
@@ -35,7 +36,7 @@
 							vendedor a vendidio un producto
 		-> cuenta con campos
 			- referido a la cantidad
-			- referido al precio -> al precio lo manejo como un string - creo que deberia cambiarlo
+			- referido al precio 
 		-> extiende de subjeto para poder agregarse a la lista de observadores
 			
 ----------------------- agregados ------------------
@@ -52,5 +53,6 @@
 		-> cada clase tiene una clase Exception
 	- Testing unitario
 		-> cada clase tiene su test unitario.
-
+	- ListaUsuarios
+	- ListaProductos
 ###########################################################################################################################		
