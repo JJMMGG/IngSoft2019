@@ -7,4 +7,5 @@
                           - abstraccion: vista general de cómo quedaría el MVC. 
 [Dacriper - 17/7/19] Implementé el Login y Registro con sus vistas. Hay una clase BuySell que con un Main empieza la App.
                       Faltaria completar login y Registro perimitiendole a la App que pueda agregar un usuario.
-
+[Dacriper - 18/7/19] Login y Registro funcionan correctamente.  
+                      Faltaria avisar a los usuarios cuando se agrego un nuevo producto.
