@@ -13,6 +13,7 @@ import usuario.Usuario;
  */
 public interface IModelo {
     
+    IModelo getModelo();
     // no tiene nada por el momento
     // es simplemente para instanciarla una sola vez
     // y poder tener acceso a cada implementacion de Modelos

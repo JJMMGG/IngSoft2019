@@ -30,7 +30,6 @@ public final class CLogin implements IControlador{
     public CLogin( IModelo modelo){
         this.modeloLogin =  (ModeloLogin) modelo;
         vistaLogin = (IVista)new VLogin(this);
-        ejecutar();
     }
     
     @Override

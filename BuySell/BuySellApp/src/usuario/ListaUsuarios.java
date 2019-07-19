@@ -17,12 +17,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import observer.Observer;
+import subject.SujetoUsuario;
 
 /**
  *
  * @author DaCriPer
  */
-public class ListaUsuarios{
+public class ListaUsuarios extends Observer{
 
     private List<Usuario> usuarios = new ArrayList<>();
     private static ListaUsuarios Lusu;
@@ -31,8 +33,10 @@ public class ListaUsuarios{
     private  static BufferedReader buffer;
     private  static PrintWriter print;
     private  static Usuario usuarioActual;
+    private   SujetoUsuario sujetoUsuario;
+    
     private ListaUsuarios(){
-        
+        sujetoUsuario = new SujetoUsuario();
     }
     
     public static ListaUsuarios getListaUsuarios(){
@@ -59,6 +63,7 @@ public class ListaUsuarios{
     }
     
     public Usuario getUsuarioActual(){
+        System.out.println(usuarioActual.getIdUsuario());
         return usuarioActual;
     }
     
@@ -81,14 +86,13 @@ public class ListaUsuarios{
 
     public void setList(List<Usuario> Lusuarios){
         this.usuarios = Lusuarios;
-        //actualizarLista();
     } 
     
     public void addUsuario(Usuario usuario){
         this.usuarios.add(usuario);
         usuarioActual = usuario;
         actualizarBDD();
-        //leerBDD();
+        actualizarSuejto(usuario);
     }
     
     public boolean addUsuario(String s[]){
@@ -129,7 +133,7 @@ public class ListaUsuarios{
             print.println(u.getIdUsuario());
             print.println(u.getContraseniaUsuario());
             print.println(u.getNuevoProducto());
-            print.println(u.getNuevoProducto());
+            print.println(u.getProductoVendido());
             print.println(" ");
         }
         print.close();
@@ -173,6 +177,18 @@ public class ListaUsuarios{
                 Logger.getLogger(ListaUsuarios.class.getName()).log(Level.SEVERE, null, ex);
             }
     }
+
+    private void actualizarSuejto(Usuario usuario) {
+        usuario.setSubjectUsuario(sujetoUsuario);
+    }
        
-   
+    public void ActualizarBaseDeDatos(){
+        Actualizar();
+    }
+
+    @Override
+    public void Actualizar() {
+        
+        actualizarBDD();
+    }
 }

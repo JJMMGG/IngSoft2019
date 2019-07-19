@@ -5,7 +5,7 @@ mi casa 23
 crisP
 cris1234
 NO
-NO
+0
  
 Enrique
 Dominguez
@@ -14,7 +14,7 @@ mi campo 46
 endo
 endo1234
 NO
-NO
+0
  
 Abigail
 Guillen
@@ -23,7 +23,7 @@ mi casa 55
 abiG
 abiG1234
 NO
-NO
+0
  
 Juan
 Giron
@@ -32,14 +32,5 @@ mi casa 1258
 juan
 juan1234
 NO
-NO
- 
-Claudio
-Ponce
-claudio@BuySell.com
-la carlota km 500
-ponce
-ponce1234
-NO
-NO
+0
  

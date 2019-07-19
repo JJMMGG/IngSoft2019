@@ -24,12 +24,20 @@ public class Computacion implements ICategoria{
 	public void agregarProducto(Producto producto)throws ExceptionCategory {
 		if(producto == null) { throw new ExceptionCategory(100);}
 		else if(!(producto instanceof Producto)) {throw new ExceptionCategory(200);}
-		else if(producto.getNombreCategoria() != getNombreCategoria() ){throw new ExceptionCategory(300);}
+		else if(producto.getNombreCategoria().equals(getNombreCategoria())  ){throw new ExceptionCategory(300);}
 		this.productos.add(producto);
 		p = producto;
-		notificarNuevoProducto();
 	}
 	
+        @Override
+        public void agregarProductoPrivate(Producto producto)throws ExceptionCategory {
+		if(producto == null) { throw new ExceptionCategory(100);}
+		else if(!(producto instanceof Producto)) {throw new ExceptionCategory(200);}
+		else if(!producto.getNombreCategoria().equals("COMPUTACION")   ){throw new ExceptionCategory(300);}
+		this.productos.add(producto);
+		p = producto;
+	}
+        
 	@Override
 	public List<Producto> getListProducto(){
 		return productos;
@@ -40,7 +48,4 @@ public class Computacion implements ICategoria{
 		return nombreCategoria;
 	}
 	
-	private void notificarNuevoProducto() {
-		p.getUsuarioProducto().getSujeto().setEstado();
-	}
 }

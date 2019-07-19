@@ -3,7 +3,7 @@ package usuario;
 import observer.Observer;
 import subject.SujetoUsuario;
 
-public class Usuario extends Observer{
+public final class Usuario extends Observer{
 
 	private String nombre;
         private String apellido;

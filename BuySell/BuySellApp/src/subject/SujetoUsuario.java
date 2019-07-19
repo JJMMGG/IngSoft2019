@@ -9,8 +9,10 @@ import usuario.Usuario;
 
 public class SujetoUsuario {
 
-	List<Observer> usuarios = new ArrayList<Observer>();
-	
+	List<Observer> usuarios = new ArrayList<>();
+        List<Usuario> usu  = new ArrayList<>();
+	Usuario usuario;
+        
 	/*
 	 * agreagamos los observadores
 	 */
@@ -21,6 +23,9 @@ public class SujetoUsuario {
 		
 	}
 	
+        public List<Usuario> getListUsuarios(){
+            return usu;
+        }
 	public void agregarListObservador(List<Observer> observadores) {
 		if(observadores != null) {
 			if(usuarios == null) this.usuarios = observadores;
@@ -42,13 +47,14 @@ public class SujetoUsuario {
 	 * usa un for each para actualizar la bandera de nuevoProducto en todos los usuarios
 	 */
 	private void notifyALL() {
+            System.out.println("OK");
 		Usuario u;
 		@SuppressWarnings("rawtypes")
 		Iterator iterU = usuarios.iterator();
 		while(iterU.hasNext()) {
 			u = (Usuario)iterU.next();
 			u.Actualizar();
-			
+			usu.add(u);
 		}
 	}
 }

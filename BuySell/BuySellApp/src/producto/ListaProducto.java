@@ -5,6 +5,9 @@
  */
 package producto;
 
+import categoria.ExceptionCategory;
+import categoria.FabricaCategoria;
+import categoria.ICategoria;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -34,11 +37,14 @@ public class ListaProducto {
     private  static PrintWriter print;
     private  static Producto productoActual;
     private  static Usuario usuarioActual;
-    
+    private static FabricaCategoria fabricaCategoria;
+    private static boolean add;
     private ListaProducto(){
+        add = true;
         productoActual = null;
         usuarioActual = null;
         Lusu = ListaUsuarios.getListaUsuarios();
+        fabricaCategoria = new FabricaCategoria();
     }
     
     public static ListaProducto getListaProductos(){
@@ -81,14 +87,38 @@ public class ListaProducto {
         return producto;
     }
 
-    public void setList(List<Producto> Lusuarios){
-        this.producto = Lusuarios;
+    public void setList(List<Producto> Lproductos){
+        this.producto = Lproductos;
         actualizarBDD();
     } 
     
+    public void setListConcat(List<Producto> Lproductos){
+        this.producto.addAll(Lproductos);
+        actualizarBDD();
+    }
+    
+    private void enlistarEnCategoria(Producto prod){
+        ICategoria categoria = fabricaCategoria.getCategoria(prod.getNombreCategoria());
+        try {
+            categoria.agregarProductoPrivate(prod);
+        } catch (ExceptionCategory ex) {
+            Logger.getLogger(ListaProducto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private void addProductoPrivate(Producto productos){
+        producto.add(productos);
+        enlistarEnCategoria(productos);
+        actualizarBDD();
+    }
+    
     public void addProducto(Producto productos){
         producto.add(productos);
-        
+        enlistarEnCategoria(productos);
+        actualizarBDD();
+        notifySujetos();
+        Lusu.setList(producto.get(producto.size()-1).getUsuarioProducto().getSujeto().getListUsuarios());
+        Lusu.ActualizarBaseDeDatos();
     }
     
     public boolean addProducto(String s[], Usuario u){
@@ -100,11 +130,11 @@ public class ListaProducto {
             pro.setPrecioProducto( Integer.parseInt(s[3]) );
             pro.setCantidadProducto( Integer.parseInt(s[4]));
             pro.setDescripcionProducto(s[5]);
-            
         }catch(ExceptionProducto e){
             return false;
         }
-        addProducto(pro);
+        if( add ) addProductoPrivate(pro);
+        else addProducto(pro);
         return true;
     }
     
@@ -140,6 +170,7 @@ public class ListaProducto {
         String linea = "";
         String[] s = new String[6];
         int i=0;
+        add = true;
         // abrimos para leer
         try {
             lector = new FileReader("BDD_PRODUCTO.txt");
@@ -171,6 +202,16 @@ public class ListaProducto {
             } catch (IOException ex) {
                 Logger.getLogger(ListaProducto.class.getName()).log(Level.SEVERE, null, ex);
             }
+        // actualizo add para que se considere la opcion de notify al agregar un producto
+         add = false;
+    }
+
+    private void notifySujetos() {
+       // -------- notifiy ---------------------
+        producto.get(producto.size()-1).getUsuarioProducto().getSujeto().setEstado();
+        System.out.println(producto.get(producto.size()-1).getUsuarioProducto().getNuevoProducto());
+        Lusu.ActualizarBaseDeDatos();
+        // --------------------------------------
     }
        
    

@@ -5,23 +5,45 @@
  */
 package Modelo;
 
+import usuario.ListaUsuarios;
+import usuario.Usuario;
+
 /**
  *
  * @author DaCriPer
  */
 public class ModeloMenuPrincipal implements IModelo{
     
-    private ModeloMenuPrincipal modeloInicio;
-    
+    ListaUsuarios Lusu;
+    Usuario usuarioActual;
+            
     public ModeloMenuPrincipal(){
-        
+            Lusu = ListaUsuarios.getListaUsuarios();
+            usuarioActual = Lusu.getUsuarioActual();
+    }
+
+    public Usuario getUsuarioActual() {
+        return usuarioActual;
     }
     
-    ModeloMenuPrincipal getModeloInicio(){
-        if(modeloInicio == null){ 
-            modeloInicio = new ModeloMenuPrincipal();
-        }
-        return modeloInicio;
+    public Usuario setUsuarioActual() {
+        return usuarioActual;
     }
     
+    private ModeloMenuPrincipal getModeloMenuPricipal(){
+        return this;
+    }
+    
+    public String getNuevoProducto(){
+        return usuarioActual.getNuevoProducto();
+    }
+    
+    public String getIdUsuarioActual(){
+        return usuarioActual.getIdUsuario();
+    }
+
+    @Override
+    public IModelo getModelo() {
+       return (IModelo) getModeloMenuPricipal();
+    }
 }

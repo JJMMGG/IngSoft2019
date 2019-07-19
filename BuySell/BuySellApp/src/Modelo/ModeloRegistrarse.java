@@ -41,6 +41,11 @@ public class ModeloRegistrarse implements IModelo{
     public boolean RegistrarUsuario(String[] s) {
         return Lusu.addUsuario(s);
     }
+
+    @Override
+    public IModelo getModelo() {
+        return null;
+    }
     
     
 }

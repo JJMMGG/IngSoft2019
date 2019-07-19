@@ -26,11 +26,12 @@ public class BuySell {
         Lusu = ListaUsuarios.getListaUsuarios();
         Lpro = ListaProducto.getListaProductos();
         
+        
         // comnienzo creando la vvista Login 
         IModelo modelo = new ModeloLogin();
         IControlador controlador;
         controlador = new CLogin(modelo);
-        
+        controlador.ejecutar();
         
     }
 }

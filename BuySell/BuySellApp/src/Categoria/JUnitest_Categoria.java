@@ -61,6 +61,12 @@ class JUnitest_Categoria {
 		System.out.println( "#########################################");
 		
 		imprimirResultado();
+                
+                System.out.println( "\n----prueba fabrica----");
+                FabricaCategoria fabrica = new FabricaCategoria();
+                
+                ICategoria cat = fabrica.getCategoria("MUEBLES");
+                System.out.println(cat.getNombreCategoria());
 	}
 
 	private static void crearProductosMueb() {
