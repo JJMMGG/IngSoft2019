@@ -25,10 +25,9 @@ public class Muebles implements ICategoria{
 	public void agregarProducto(Producto producto)throws ExceptionCategory {
 		if(producto == null) { throw new ExceptionCategory(100);}
 		else if(!(producto instanceof Producto)) {throw new ExceptionCategory(200);}
-		else if(producto.getNombreCategoria() != getNombreCategoria() ){throw new ExceptionCategory(300);}// esto falta de ver
+		else if(!producto.getNombreCategoria().equals(nombreCategoria) ){throw new ExceptionCategory(300);}// esto falta de ver
 		this.productos.add(producto);
 		p = producto;
-		notificarNuevoProducto();
 	}
 	
 	@Override
@@ -44,5 +43,14 @@ public class Muebles implements ICategoria{
 	private void notificarNuevoProducto() {
 		p.getUsuarioProducto().getSujeto().setEstado();
 	}
+
+    @Override
+    public void agregarProductoPrivate(Producto producto) throws ExceptionCategory {
+        if(producto == null) { throw new ExceptionCategory(100);}
+		else if(!(producto instanceof Producto)) {throw new ExceptionCategory(200);}
+		else if(!producto.getNombreCategoria().equals("MUEBLES") ){throw new ExceptionCategory(300);}// esto falta de ver
+		this.productos.add(producto);
+		p = producto;
+    }
 }
 

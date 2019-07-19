@@ -24,10 +24,9 @@ public class Vehiculo implements ICategoria {
 	public void agregarProducto(Producto producto)throws ExceptionCategory {
 		if(producto == null) { throw new ExceptionCategory(300);}
 		else if(!(producto instanceof Producto)) {throw new ExceptionCategory(400);}
-		else if( !(producto.getNombreCategoria() == getNombreCategoria()) ){throw new ExceptionCategory(300);}
+		else if( !(producto.getNombreCategoria().equals("VEHICULO")) ){throw new ExceptionCategory(300);}
 		this.productos.add(producto);
 		p = producto;
-		notificarNuevoProducto();
 	}
 	
 	@Override
@@ -43,4 +42,13 @@ public class Vehiculo implements ICategoria {
 	private void notificarNuevoProducto() {
 		p.getUsuarioProducto().getSujeto().setEstado();
 	}
+
+    @Override
+    public void agregarProductoPrivate(Producto producto) throws ExceptionCategory {
+        if(producto == null) { throw new ExceptionCategory(300);}
+		else if(!(producto instanceof Producto)) {throw new ExceptionCategory(400);}
+		else if( !(producto.getNombreCategoria().equals("VEHICULO")) ){throw new ExceptionCategory(300);}
+		this.productos.add(producto);
+		p = producto;
+    }
 }

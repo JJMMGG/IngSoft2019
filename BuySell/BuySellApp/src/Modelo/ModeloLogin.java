@@ -36,5 +36,10 @@ public class ModeloLogin implements IModelo{
     public Usuario getUsuario(){
         return usu;
     }
+
+    @Override
+    public IModelo getModelo() {
+        return (IModelo) getModelo();
+    }
 }
 
