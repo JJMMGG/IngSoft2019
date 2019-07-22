@@ -35,9 +35,9 @@ public final class CMenuPrincipal implements IControlador{
     
     @Override
     public void ejecutar(){
-        vistaMenuCuadricula.colocarNuevoProducto(modeloMenuPrincipal.getNuevoProducto());
-        vistaMenuLista.colocarNuevoProducto(modeloMenuPrincipal.getNuevoProducto());
         usuarioActual = modeloMenuPrincipal.getUsuarioActual();
+        ActualizarNuevoproducto();
+        setIdUsuario();
         if( i ) vistaMenuCuadricula.hacerVisible();
         else vistaMenuLista.hacerVisible();
     }
@@ -65,5 +65,14 @@ public final class CMenuPrincipal implements IControlador{
     public String getIDUsuarioActual(){
         return modeloMenuPrincipal.getIdUsuarioActual();
     }
+
+    public void ActualizarNuevoproducto() {
+        vistaMenuCuadricula.colocarNuevoProducto(modeloMenuPrincipal.getNuevoProducto());
+        vistaMenuLista.colocarNuevoProducto(modeloMenuPrincipal.getNuevoProducto());
+    }
     
+    public void setIdUsuario(){
+        vistaMenuCuadricula.colocarIDUsuario(usuarioActual.getIdUsuario());
+        vistaMenuLista.colocarIDUsuario(usuarioActual.getIdUsuario());
+    }
 }

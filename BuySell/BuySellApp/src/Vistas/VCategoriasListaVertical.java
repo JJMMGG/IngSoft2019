@@ -9,12 +9,12 @@ package Vistas;
  *
  * @author DaCriPer
  */
-public class CategoriasListaVertical extends javax.swing.JFrame {
+public class VCategoriasListaVertical extends javax.swing.JFrame {
 
     /**
      * Creates new form CategoriasListaVertical
      */
-    public CategoriasListaVertical() {
+    public VCategoriasListaVertical() {
         initComponents();
     }
 
@@ -29,15 +29,17 @@ public class CategoriasListaVertical extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        Computacion = new javax.swing.JButton();
+        Vehiculo = new javax.swing.JButton();
+        Muebles = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        nombreUsuario = new javax.swing.JList();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        Cancelar = new javax.swing.JMenuItem();
+        Salir = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        VistaHorizontal = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -46,11 +48,14 @@ public class CategoriasListaVertical extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Categorias");
 
-        jButton1.setText("Computación");
+        Computacion.setText("Computación");
 
-        jButton2.setText("Vehiculo");
+        Vehiculo.setText("Vehiculo");
 
-        jButton3.setText("Muebles");
+        Muebles.setText("Muebles");
+
+        nombreUsuario.setBackground(new java.awt.Color(153, 255, 255));
+        jScrollPane1.setViewportView(nombreUsuario);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -59,48 +64,55 @@ public class CategoriasListaVertical extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3)
-                    .addComponent(jButton1)
+                    .addComponent(Computacion)
                     .addComponent(jLabel1)
-                    .addComponent(jButton2))
-                .addContainerGap(78, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(Muebles)
+                            .addComponent(Vehiculo))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(jLabel1)
-                .addGap(37, 37, 37)
-                .addComponent(jButton1)
-                .addGap(32, 32, 32)
-                .addComponent(jButton2)
                 .addGap(31, 31, 31)
-                .addComponent(jButton3)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addComponent(jLabel1)
+                .addGap(51, 51, 51)
+                .addComponent(Computacion)
+                .addGap(26, 26, 26)
+                .addComponent(Muebles)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addComponent(Vehiculo)
+                .addGap(33, 33, 33)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jMenu1.setText("BuySell");
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem1.setText("Cancelar");
-        jMenu1.add(jMenuItem1);
+        Cancelar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
+        Cancelar.setText("Cancelar");
+        jMenu1.add(Cancelar);
 
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem2.setText("Salir");
-        jMenu1.add(jMenuItem2);
+        Salir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        Salir.setText("Salir");
+        jMenu1.add(Salir);
 
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Vista");
 
-        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem3.setText("Lista Horizontal");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        VistaHorizontal.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.CTRL_MASK));
+        VistaHorizontal.setText("Lista Horizontal");
+        VistaHorizontal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                VistaHorizontalActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem3);
+        jMenu2.add(VistaHorizontal);
 
         jMenuBar1.add(jMenu2);
 
@@ -120,9 +132,9 @@ public class CategoriasListaVertical extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void VistaHorizontalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VistaHorizontalActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_VistaHorizontalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -141,35 +153,38 @@ public class CategoriasListaVertical extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CategoriasListaVertical.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VCategoriasListaVertical.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CategoriasListaVertical.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VCategoriasListaVertical.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CategoriasListaVertical.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VCategoriasListaVertical.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CategoriasListaVertical.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VCategoriasListaVertical.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CategoriasListaVertical().setVisible(true);
+                new VCategoriasListaVertical().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JMenuItem Cancelar;
+    private javax.swing.JButton Computacion;
+    private javax.swing.JButton Muebles;
+    private javax.swing.JMenuItem Salir;
+    private javax.swing.JButton Vehiculo;
+    private javax.swing.JMenuItem VistaHorizontal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList nombreUsuario;
     // End of variables declaration//GEN-END:variables
 }
