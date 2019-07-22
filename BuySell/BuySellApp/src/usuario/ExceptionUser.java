@@ -15,16 +15,16 @@ public class ExceptionUser extends Exception{
 		
 		switch(codigoError) {
 			case 000:
-				m= "000-Contraseña fuera del intervalo permitido. Elija una que sea de 8 a 15 caracteres alafanuméricos";
+				m= "000-ContraseÃ±a fuera del intervalo permitido. Elija una que sea de 8 a 15 caracteres alafanumericos";
 				break;
 			case 001:
-				m= "001-Contraseña vacia. Asegurese de colocar una contraseña  de 8 o más caracteres alafanuméricos";
+				m= "001-ContraseÃ±a vacia. Asegurese de colocar una contraseÃ±a  de 8 o mas caracteres alafanumericos";
 				break;
 			case 002:
-				m= "002-Contraseña no aceptada. Elija una que sea de 8 a 15 caracteres alafanuméricos";
+				m= "002-ContraseÃ±a no aceptada. Elija una que sea de 8 a 15 caracteres alafanumericos";
 				break;
 			case 003:
-				m= "003-Falta número en su contraseña";
+				m= "003-Falta numero en su contraseÃ±a";
 				break;
 			case 004:
 				m= "004-Nombre usuario: vacio";

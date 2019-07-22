@@ -6,7 +6,7 @@ class JUnitest_usuario {
 	
 	public static void main(String[] args) {
 		/*
-		 * se irá probando metodos por metodos
+		 * se ira probando metodos por metodos
 		 */
 		prueba_positiva_registro();
 		if(contador == 4 ) { System.out.println("Prueba positiva Registro: passed"); }

@@ -1,84 +1,42 @@
 Television philco
 MUEBLES
 crisP
-1000
 1
+1000
 Excelente estado
  
 Bicicleta Ferrer colo gris
 VEHICULO
 crisP
-2500
 1
+2500
 Faltan cambios
  
 Monitores LG 
 COMPUTACION
 abiG
-450
 6
+450
 Muy buena resolucion
  
 Teclado Casio 5 Octavas
 MUEBLES
 endo
-1500
 35
+1500
 Excelente calidad del sonido
  
 Ford Fiesta 2015
 VEHICULO
 endo
-200000
 1
+200000
 Defecto en parachoque
  
 Heladera Columbia 
 MUEBLES
 abiG
-1100
 1
+1100
 cambiar automatico
- 
-asdasd
-COMPUTACION
-juan
-112
-55454
-dasdasdas
- 
-Kanji Notebook
-COMPUTACION
-crisP
-8787
-5454
-sfsfsdfsdfs
- 
-gorro
-MUEBLES
-crisP
-2121
-31313
-adasdasdas
- 
-asdasd
-COMPUTACION
-crisP
-2121
-212
-dgdfg
- 
-dadasd
-COMPUTACION
-crisP
-2121
-878
-asdasdas
- 
-Hoja a4
-COMPUTACION
-crisP
-212
-113
-fadadas
  
