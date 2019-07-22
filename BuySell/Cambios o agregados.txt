@@ -1,6 +1,7 @@
 ----------------------- actualizacion --------------
-	-> 12/7/19 - Cristian
-	-> 18/7/19 - Cristian
+	-> 12/7/19 - Dacriper
+	-> 18/7/19 - Dacriper
+	-> 21/7/19 - Dacriper
 ----------------------- Observaciones --------------
 	- testing unitario de Observer
 		-> esta hecho solo para verificar que se hace la notificacion a los usuarios
@@ -55,4 +56,5 @@
 		-> cada clase tiene su test unitario.
 	- ListaUsuarios
 	- ListaProductos
+	- Boton "Actuualizar". setea el estado de "nuevo producto"
 ###########################################################################################################################		
